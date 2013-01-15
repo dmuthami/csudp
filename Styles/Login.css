@@ -1,0 +1,35 @@
+﻿.Login
+{
+  position: absolute;
+  left: 40px;
+  top: 40px;
+}
+
+.Title
+{
+  font-weight: bold;
+  padding-bottom: 6px;
+}
+
+.Label
+{
+  padding-right: 5px;
+  width: 70px;
+}
+
+.TextBox
+{
+  width: 120px;
+}
+
+.CheckBox
+{
+  padding-top: 6px;
+  padding-bottom: 6px;
+  padding-left: 75px;
+}
+
+.Failure, .Validator
+{
+  color: #800000;
+}

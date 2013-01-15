@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+
+<html>
+  <head id="head">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.2, maximum-scale=1.2" />
+    <meta name="description" content="Online CSOs mapping" />
+    <meta nam="author" content="SpatialWise Solutions" />
+    <title> Civil Society Organizations - Kenya</title>
+    
+    <script type="text/javascript" src="Scripts/jquery-1.7.1.min.js"></script>
+    <!-- 
+        <script type="text/javascript" src="Scripts/Default.min44ca.js?v=1.4.0"> </script>
+    -->
+    <link href="Styles/Common44ca.css?v=1.4.0" type="text/css" rel="stylesheet"></link>
+    <link href="Styles/Default44ca.css?v=1.4.0" type="text/css" rel="stylesheet"></link>
+    <link href="Styles/ZoomBar44ca.css?v=1.4.0" type="text/css" rel="stylesheet"></link>
+    
+    <script type="text/javascript" src="Scripts/jquery.watermark.min.js"></script>
+    <script type="text/javascript" src="Scripts/jquery.ui.touch-punch.js"> </script> 
+    <script type="text/javascript" src="Scripts/jquery.geo-test.min.js"></script>
+    <script type="text/javascript" src="Scripts/jquery.cookie.min.js"> </script> 
+    <script type="text/javascript" src="Scripts/jquery-ui-1.8.17.custom.min.js"> </script> 
+    
+    <script type="text/javascript" src="Scripts/ZoomBar.js"></script>
+    <script type="text/javascript" src="Scripts/WebMercator.js"> </script> 
+    <script type="text/javascript" src="Scripts/Selection.js"></script>
+    <script type="text/javascript" src="Scripts/Search.js"> </script> 
+    <script type="text/javascript" src="Scripts/PropertyInfo.js"> </script> 
+    
+    <script type="text/javascript" src="Scripts/MapTip.js"></script>
+    <script type="text/javascript" src="Scripts/MapGeo.js"> </script> 
+    <script type="text/javascript" src="Scripts/JsonStringify.js"></script>
+    <script type="text/javascript" src="Scripts/Inset.js"> </script> 
+    <script type="text/javascript" src="Scripts/Expander.js"> </script> 
+    
+    <script type="text/javascript" src="Scripts/Dockable.js"></script>
+    <script type="text/javascript" src="Scripts/Default.js "> </script> 
+    <script type="text/javascript" src="Scripts/ColorSelector.js"></script>
+    <script type="text/javascript" src="Scripts/ClientInfo.js"> </script> 
+    <script type="text/javascript" src="Scripts/Abutters.js"> </script> 
+    
+    
+    
+    
+    <script type="text/javascript">
+      var config = {
+      "applicationInfo": {
+        "mapgeoVersion": {
+          "long": "1.0 (2012/08/08)",
+          "short": "1.0"
+        },
+        "id": "CSUDP",
+        "allow": {
+          "propertyIDSearch": true,
+          "ownerSearch": true
+        },
+        "logUse": true
+      },
+      "clientInfo": {
+        "municipality": {
+          "name": "Civil Society Urban Development Programme (CSUDP)",
+          "homePageUrl": "http://www.csudp.org/",
+          "logoUrl": "~/Custom/Images/logo.png"
+        },
+        "contact": {
+          "name": "Veronica Machira, Information & Communication Officer",
+          "address": "Methodist Ministries Centre, Block B, 2nd Floor, Oloitoktok Rd, Nairobi",
+          "phone": "+254-20-4947204",
+          "email": "veronica.machira@csudp.org"
+        },
+        "disclaimer": {
+          "requireAcceptance": false,
+          "general": "The data available here is updated in the normal course of business and may not always represent the most current information. In addition, some of the data contained herein may have changed and the accuracy of that information cannot be confirmed. \n\n CSUDP and SpatialWise, respectively, do not make any warranty, representation, or guarantee as to the content, sequence, accuracy, timeliness, or completeness of any of the information provide herein. The user should not rely on the data provided herein without verifying its accuracy independently. CSUDP and SpatialWise, respectively, explicitly disclaim any representations and warranties including, without limitation, the implied warranties of merchantability and fitness for a particular purpose. \n\n CSUDP and SpatialWise, respectively, shall assume no liability for any errors, omissions, or inaccuracies in the information provided regardless of how caused and for any decision made or action taken or not taken by the user in reliance upon any information of data furnished hereunder. \n\n If you identify any data problems please use the \"Comments\" function to notify the CSUDP.",
+          "abutters": null,
+          "printableMap": "CSUDP makes no claims and no warranties, expressed or implied, concerning  the validity or accuracy of the GIS data presented on this map.",
+          "panelHeight": 415
+        },
+        "lastUpdate": {
+          "parcels": "July 1, 2012",
+          "propertyData": "July 1, 2012"
+        },
+        "showLogin": "true"
+      },
+      "map": {
+        "fullExtent": [
+          3775046.42,
+          -524053.97,
+          4664983.30,
+           605444.18
+        ],
+        "baseMaps": [
+          {
+            "id": "BM",
+            "name": "Base Map",
+            "tileSets": [
+              {
+                "tileCacheUrl":"http://176.58.114.103:8080/geoserver/cso/wms?service=WMS&version=1.1.0&request=GetMap&layers=cso:county&styles=&bbox=33.9118194576021,-4.7022705079774,41.9062576293862,5.4306483270588&width=403&height=512&srs=EPSG:4326&format=image/png" 
+              }
+            ]
+          },
+          {
+            "id": "AP",
+            "name": "Aerial Photo, 2008",
+            "tileSets": [
+              {
+                "tileCacheUrl": "http://s3.amazonaws.com/MapGeo_MA/Beverly/OrthoBase08"
+              }
+            ]
+          },
+          {
+            "id": "AP2002",
+            "name": "Aerial Photo, 2002",
+            "tileSets": [
+              {
+                "tileCacheUrl": "http://s3.amazonaws.com/MapGeo_MA/Beverly/Ortho2002"
+              }
+            ]
+          },
+          {
+            "id": "AP1947",
+            "name": "Aerial Photo, 1947",
+            "tileSets": [
+              {
+                "tileCacheUrl": "http://s3.amazonaws.com/MapGeo_MA/Beverly/Ortho1947"
+              }
+            ]
+          }
+        ],
+        "externalMaps": [
+          "MapBox Light",
+          "MapQuest",
+          "OpenStreetMap"
+        ],
+        "townMapGalleryUrl": null,
+        "thematicMaps": [
+          {
+            "id": "WD",
+            "name": "Wards, Precincts and Places of Interest",
+            "tileSets": [
+              {
+                "getUrl": "http://176.58.114.103:8080/geoserver/cso/wms?service=WMS&version=1.1.0&request=GetMap&layers=cso:county&styles=&bbox=33.9118194576021,-4.7022705079774,41.9062576293862,5.4306483270588&width=403&height=512&srs=EPSG:4326&format=image/png"
+              }
+            ]
+          },
+          {
+            "id": "TP",
+            "name": "Topography",
+            "tileSets": [
+              {
+                "tileCacheUrl": "http://s3.amazonaws.com/MapGeo_MA/Beverly/Topo"
+              }
+            ]
+          },
+          {
+            "id": "ZN",
+            "name": "Zoning",
+            "tileSets": [
+              {
+                "tileCacheUrl": "http://s3.amazonaws.com/MapGeo_MA/Beverly/Zoning"
+              }
+            ]
+          },
+          {
+            "id": "FZ",
+            "name": "FEMA 2012 Flood Zones",
+            "tileSets": [
+              {
+                "tileCacheUrl": "http://s3.amazonaws.com/MapGeo_MA/Beverly/2012FEMA"
+              }
+            ]
+          },
+          {
+            "id": "LC",
+            "name": "Land Conservation",
+            "tileSets": [
+              {
+                "tileCacheUrl": "http://s3.amazonaws.com/MapGeo_MA/Common/LandConservation"
+              }
+            ]
+          },
+          {
+            "id": "LU",
+            "name": "Land Use",
+            "tileSets": [
+              {
+                "tileCacheUrl": "http://s3.amazonaws.com/MapGeo_MA/Common/LandUse"
+              }
+            ]
+          },
+          {
+            "id": "WT",
+            "name": "Wetlands",
+            "tileSets": [
+              {
+                "tileCacheUrl": "http://s3.amazonaws.com/MapGeo_MA/Common/Wetlands"
+              }
+            ]
+          }
+        ],
+        "zoomBar": {
+          "offset": 5,
+          "levels": 12,
+          "initialLevel": 6
+        },
+        "showScaleBar": true
+      },
+      "abutters": {
+        "initialSearchDistance": 100,
+        "maxSearchDistance": 500,
+        "spreadsheet": {},
+        "abuttersReport": false,
+        "externalLinks": []
+      },
+      "propertyInfo": {
+        "sortField": "address",
+        "mailingLabels": {
+          "fontSize": 10
+        },
+        "externalLinks": [
+          {
+            "text": "Property Record Card",
+            "urlFormat": "http://beverly.patriotproperties.com/Landing.asp?anum={Account}"
+          }
+        ],
+        "recordCardImageUrl": null,
+        "allow": {
+          "ownerOnMailingLabels": true
+        }
+      },
+      "mapTip": {
+        "zoomLevel": 6
+      },
+      "inset": {
+        "imageSource": "Custom/Images/Inset.png",
+        "size": {
+          "width": 235,
+          "height": 140
+        },
+        "extent": [
+          3775046.42,
+          -524053.97,
+          4664983.30,
+           605444.18
+        ],
+        "printExtent": {
+          "minx": 3775046.42,
+          "miny": -524053.97,
+          "maxx": 4664983.30,
+          "maxy":  605444.18
+        },
+        "visible": false
+      },
+      "search": {},
+      "panels": {
+        "animation": {
+          "motion": "orthogonal",
+          "duration": 0.9
+        },
+        "isDocked": {
+          "layer": true,
+          "search": false,
+          "propertyInfo": true,
+          "abutter": true,
+          "clientInfo": true,
+          "help": true
+        },
+        "docked": {
+          "layer": {
+            "top": 0,
+            "width": 55,
+            "height": 20,
+            "left": 58
+          },
+          "search": {
+            "top": 0,
+            "width": 102,
+            "height": 20,
+            "left": 123
+          },
+          "propertyInfo": {
+            "top": 0,
+            "width": 90,
+            "height": 20,
+            "left": 235
+          },
+          "abutter": {
+            "top": 0,
+            "width": 90,
+            "height": 20,
+            "left": 335
+          },
+          "clientInfo": {
+            "top": 0,
+            "width": 120,
+            "height": 20,
+            "left": 435
+          },
+          "help": {
+            "top": 0,
+            "width": 50,
+            "height": 20,
+            "left": 565
+          }
+        },
+        "opened": {
+          "layer": {
+            "left": 40,
+            "top": 30,
+            "width": 400,
+            "height": 120
+          },
+          "search": {
+            "left": 40,
+            "top": 160,
+            "width": 260,
+            "height": 340
+          },
+          "propertyInfo": {
+            "left": 310,
+            "top": 130,
+            "width": 300,
+            "height": 300
+          },
+          "abutter": {
+            "left": 620,
+            "top": 130,
+            "width": 300,
+            "height": 300
+          },
+          "clientInfo": {
+            "right": 10,
+            "top": 30,
+            "width": 470,
+            "height": 175
+          },
+          "help": {
+            "right": 10,
+            "top": 30,
+            "width": 400,
+            "height": 400
+          }
+        },
+        "resizable": {
+          "search": {
+            "minWidth": 260,
+            "minHeight": 200
+          },
+          "propertyInfo": {
+            "minWidth": 260,
+            "minHeight": 200
+          },
+          "abutter": {
+            "minWidth": 260,
+            "minHeight": 200
+          },
+          "help": {
+            "minWidth": 400,
+            "minHeight": 260
+          }
+        }
+      }
+    };</script>
+  </head>
+  <body>
+  <div id="mapgeo">
+    <h1 style="display: none;">MapGeo</h1>
+    <div id="map"></div>
+    <div id="copyright"></div>
+    <div id="scaleBarPanel" style="behavior: url(Styles/PIE.htc)">
+      <div id="scaleBar"></div>
+      <div id="scaleText"></div>
+    </div>
+    <div id="mapTip" style="behavior: url(Styles/PIE.htc)">
+      <span id="mapTipContent"></span><br />
+      <span class="MapTipControls">
+        Parcel: <span id="mapTipSelect" class="MapTip Link">Select</span>
+        <span id="mapTipAdd" class="MapTip Link">Add</span>
+        <span id="mapTipRemove" class="MapTip Link">Remove</span>
+      </span>
+      <span id="mapTipAbutter" class="MapTipControls"><br />
+        Abutter: <span id="mapTipAddAbutter" class="MapTip Link">Add</span>
+        <span id="mapTipRemoveAbutter" class="MapTip Link">Remove</span>
+      </span>
+    </div>
+    <div id="zoomPanel" style="behavior:url(Styles/PIE.htc);height:155px;">
+      <div id="cmdZoomFull" title="Zoom to Full View"></div>
+      <div id="zoomBar" data-maxlevel="7"><div id="zoomBarPlus" title="Zoom In"></div><div id="zoomBarActive" unselectable="on"><div id="zoomBarTop" class="ZoomBar"></div><div class="ZoomBar Middle"></div><div class="ZoomBar Middle"></div><div class="ZoomBar Middle"></div><div class="ZoomBar Middle"></div><div class="ZoomBar Middle"></div><div class="ZoomBar Middle"></div><div id="zoomBarBottom" class="ZoomBar"></div><div id="zoomBarSlider" class="ZoomBar"></div></div><div id="zoomBarMinus" title="Zoom Out"></div></div>
+    </div>
+    <div id="touchPanel" style="behavior:url(Styles/PIE.htc);display:none;top:175px;">
+      <div id="cmdTouch"></div>
+    </div>
+    <div id="layer" class="Panel Dockable Docked" style="z-index:20;behavior:url(Styles/PIE.htc);left: 58px; top: 0px; width: 55px; height: 20px;">
+      <div class="PanelBody" style="behavior: url(Styles/PIE.htc)">
+        <div class="PanelHeader" style="behavior: url(Styles/PIE.htc)">
+          <h2>Maps</h2>
+          <div id="layerControls" class="PanelControls" style="display:none;">
+            <span id="cmdLocalHelpMaps" class="LocalHelp" title="Help">?</span>
+            <span class="PanelClose" title="Close">x</span>
+          </div>
+        </div>
+        <div id="layerContent" class="PanelContent">
+          <div id="pnlBaseMap">
+            <div class="MapType">Base</div>
+            <select name="ddlBaseMap" id="ddlBaseMap">
+              <option value="0">Base Map</option>
+              <option value="1">MapQuest</option>
+              <option value="2">OpenStreetMap</option>
+            </select>
+            <div class="MapSlider">
+              <div class="MapSliderBar" style="behavior: url(Styles/PIE.htc)">
+                <img src="Images/SliderGradient.png" class="MapSliderGradient" />
+              </div>
+              <div id="baseMapSlider"></div>
+            </div>
+          </div>
+          <div id="pnlTheme">
+            <div class="MapType">Thematic Overlay</div>
+            <select name="ddlThematicMap" id="ddlThematicMap">
+              <option value="none">none</option>
+              <option value="0">Municipality</option>
+              <option value="1">Wards</option>
+              <option value="2">County</option>
+            </select>
+            <div class="MapSlider">
+              <div class="MapSliderBar" style="behavior: url(Styles/PIE.htc)">
+                <img src="Images/SliderGradient.png" class="MapSliderGradient" />
+              </div>
+              <div id="thematicMapSlider"></div>
+            </div>
+          </div>
+          <div id="cmdLegend" class="Expander MapExpander Closed" style="behavior: url(Styles/PIE.htc)">Legend&nbsp;&nbsp;<span>&#9660</span></div>
+          <div id="cmdPrintableMap" class="Expander MapExpander Closed" style="behavior: url(Styles/PIE.htc)">Printable&nbsp;Map&nbsp;&nbsp;<span>&#9660</span></div>
+          <div id="cmdMapLink" class="Expander MapExpander Closed" style="behavior: url(Styles/PIE.htc)">Link&nbsp;&nbsp;<span>&#9660</span></div>
+          
+          <a id="lnkGoogleStreetView" href="#" title="View in Google Street View" target="_blank"></a>
+          <a id="lnkBingBirdsEye" href="#" title="View in Bing Birds Eye" target="_blank"></a>
+          <div id="pnlPrintableMap">
+            <span class="Label">Title</span> <input type="text" id="tboPrintableMapTitle" size="30" /><br /><br />
+            <div>
+              <span class="Label">Printable map layout</span><br />
+              <ul style="float: left; margin-bottom: 10px">
+                <li><input type="radio" class="PrintSize" name="PrintLayout" checked="checked" value="0" />A4 (8.27 x 11.69)</li>
+                <li><input type="radio" class="PrintSize" name="PrintLayout" value="1" />A3 (11.69 x 16.54)</li>
+                <li><input type="checkbox" class="printLegend"/> Include legend</li>
+              </ul>
+              <ul style="float: left">
+                <li><input type="radio" class="PrintOrientation" name="PrintOrientation" checked="checked" value="0" />Portrait</li>
+                <li><input type="radio" class="PrintOrientation" name="PrintOrientation" value="1" />Landscape</li>
+                <li>&nbsp;</li>
+              </ul>
+            </div>
+            <div style="clear: left">
+              <span class="Label">Draw printable map</span>
+              <ul>
+                <li><input type="radio" class="PrintOption" name="PrintOption" checked="checked" value="0" />with the current visible extent (scale: &nbsp;1" = <span id="spnPrintableExtentScale"></span> m)</li>
+                <li><input type="radio" class="PrintOption" name="PrintOption" value="1" />at the current scale: &nbsp;1" = <span id="spnPrintableCurrentScale"></span> m</li>
+                <li><input type="radio" class="PrintOption" name="PrintOption" value="2" />at this scale: &nbsp;1" = <input type="text" id="tboPrintableMapScale" style="width: 40px" value="500" /> m</li>
+              </ul>
+            </div>
+            <div style="margin-top: 10px">
+              <span id="cmdCreatePrintableMap" class="Link">Create Printable Map</span><br />
+            </div>
+          </div>
+          <div id="pnlLegend">
+            <div id="pnlBaseMapLegend" class="LegendScroll">
+                <div id="pnlBaseMaps_BM" class="Legend">
+                <div class="LegendLabel">Town Boundary</div>
+                <div class="LegendSymbol" style="width:24px;height:16px;background-position:0px -0px;background-image:url('Custom/Legends/BaseMaps/BM.png');"></div>
+            </div>
+            <div id="pnlBaseMaps_AP" class="Legend">
+                <div class="LegendLabel">Major Roads</div>
+                <div class="LegendSymbol" style="width:152px;height:48px;background-position:0px -0px;background-image:url('Custom/Legends/BaseMaps/AP.png');"></div>
+                <div class="LegendLabel">Parcels</div>
+                <div class="LegendSymbol" style="width:24px;height:16px;background-position:0px -48px;background-image:url('Custom/Legends/BaseMaps/AP.png');"></div>
+                <div class="LegendLabel">Major Ponds</div>
+                <div class="LegendSymbol" style="width:24px;height:16px;background-position:0px -64px;background-image:url('Custom/Legends/BaseMaps/AP.png');"></div>
+                <div class="LegendLabel">Major Streams</div>
+                <div class="LegendSymbol" style="width:24px;height:16px;background-position:0px -80px;background-image:url('Custom/Legends/BaseMaps/AP.png');"></div>
+                <div class="LegendLabel">Federal and State Open Space</div>
+                <div class="LegendSymbol" style="width:24px;height:16px;background-position:0px -96px;background-image:url('Custom/Legends/BaseMaps/AP.png');"></div>
+                <div class="LegendLabel">Towns</div>
+                <div class="LegendSymbol" style="width:24px;height:16px;background-position:0px -112px;background-image:url('Custom/Legends/BaseMaps/AP.png');"></div>
+            </div>
+            <div id="pnlBaseMaps_AP2002" class="Legend">
+                <div class="LegendLabel">Major Roads</div>
+                <div class="LegendSymbol" style="width:152px;height:48px;background-position:0px -0px;background-image:url('Custom/Legends/BaseMaps/AP2002.png');"></div>
+                <div class="LegendLabel">Parcels</div>
+                <div class="LegendSymbol" style="width:24px;height:16px;background-position:0px -48px;background-image:url('Custom/Legends/BaseMaps/AP2002.png');"></div>
+                <div class="LegendLabel">Major Ponds</div>
+                <div class="LegendSymbol" style="width:24px;height:16px;background-position:0px -64px;background-image:url('Custom/Legends/BaseMaps/AP2002.png');"></div>
+                <div class="LegendLabel">Major Streams</div>
+                <div class="LegendSymbol" style="width:24px;height:16px;background-position:0px -80px;background-image:url('Custom/Legends/BaseMaps/AP2002.png');"></div>
+                <div class="LegendLabel">Federal and State Open Space</div>
+                <div class="LegendSymbol" style="width:24px;height:16px;background-position:0px -96px;background-image:url('Custom/Legends/BaseMaps/AP2002.png');"></div>
+                <div class="LegendLabel">Towns</div>
+                <div class="LegendSymbol" style="width:24px;height:16px;background-position:0px -112px;background-image:url('Custom/Legends/BaseMaps/AP2002.png');"></div>
+            </div>
+            <div id="pnlBaseMaps_AP1947" class="Legend">
+                <div class="LegendLabel">Major Roads</div>
+                <div class="LegendSymbol" style="width:152px;height:48px;background-position:0px -0px;background-image:url('Custom/Legends/BaseMaps/AP1947.png');"></div>
+                <div class="LegendLabel">Parcels</div>
+                <div class="LegendSymbol" style="width:24px;height:16px;background-position:0px -48px;background-image:url('Custom/Legends/BaseMaps/AP1947.png');"></div>
+                <div class="LegendLabel">Major Ponds</div>
+                <div class="LegendSymbol" style="width:24px;height:16px;background-position:0px -64px;background-image:url('Custom/Legends/BaseMaps/AP1947.png');"></div>
+                <div class="LegendLabel">Major Streams</div>
+                <div class="LegendSymbol" style="width:24px;height:16px;background-position:0px -80px;background-image:url('Custom/Legends/BaseMaps/AP1947.png');"></div>
+                <div class="LegendLabel">Federal and State Open Space</div>
+                <div class="LegendSymbol" style="width:24px;height:16px;background-position:0px -96px;background-image:url('Custom/Legends/BaseMaps/AP1947.png');"></div>
+                <div class="LegendLabel">Towns</div>
+                <div class="LegendSymbol" style="width:24px;height:16px;background-position:0px -112px;background-image:url('Custom/Legends/BaseMaps/AP1947.png');"></div>
+              </div>
+            </div>
+            <div id="pnlThematicMapLegend" class="LegendScroll">
+              <div id="pnlThematicMaps_WD" class="Legend">
+                <div class="LegendLabel">City Landmarks</div>
+                <div class="LegendSymbol" style="width:126px;height:128px;background-position:0px -0px;background-image:url('Custom/Legends/ThematicMaps/WD.png');"></div>
+                <div class="LegendLabel">National Register Property</div>
+                <div class="LegendSymbol" style="width:191px;height:16px;background-position:0px -128px;background-image:url('Custom/Legends/ThematicMaps/WD.png');"></div>
+                <div class="LegendLabel">Polling Places</div>
+                <div class="LegendSymbol" style="width:24px;height:16px;background-position:0px -160px;background-image:url('Custom/Legends/ThematicMaps/WD.png');"></div>
+                <div class="LegendLabel">Public School</div>
+                <div class="LegendSymbol" style="width:109px;height:16px;background-position:0px -176px;background-image:url('Custom/Legends/ThematicMaps/WD.png');"></div>
+                <div class="LegendLabel">Ward and Precinct</div>
+                <div class="LegendSymbol" style="width:46px;height:192px;background-position:0px -208px;background-image:url('Custom/Legends/ThematicMaps/WD.png');"></div>
+              </div>
+              <div id="pnlThematicMaps_TP" class="Legend">
+                <div class="LegendLabel">Contours</div>
+                <div class="LegendSymbol" style="width:179px;height:64px;background-position:0px -0px;background-image:url('Custom/Legends/ThematicMaps/TP.png');"></div>
+              </div>
+              <div id="pnlThematicMaps_ZN" class="Legend">
+                <div class="LegendLabel">Overlay</div>
+                <div class="LegendSymbol" style="width:180px;height:96px;background-position:0px -0px;background-image:url('Custom/Legends/ThematicMaps/ZN.png');"></div>
+                <div class="LegendLabel">Zoning</div>
+                <div class="LegendSymbol" style="width:54px;height:304px;background-position:0px -96px;background-image:url('Custom/Legends/ThematicMaps/ZN.png');"></div>
+              </div>
+              <div id="pnlThematicMaps_FZ" class="Legend">
+                <div class="LegendLabel">Base Flood Elevation</div>
+                <div class="LegendSymbol" style="width:24px;height:16px;background-position:0px -0px;background-image:url('Custom/Legends/ThematicMaps/FZ.png');"></div>
+                <div class="LegendLabel">Transect Lines</div>
+                <div class="LegendSymbol" style="width:24px;height:16px;background-position:0px -16px;background-image:url('Custom/Legends/ThematicMaps/FZ.png');"></div>
+                <div class="LegendLabel">Special Flood Hazard Areas</div>
+                <div class="LegendSymbol" style="width:293px;height:32px;background-position:0px -32px;background-image:url('Custom/Legends/ThematicMaps/FZ.png');"></div>
+              </div>
+              <div id="pnlThematicMaps_LC" class="Legend">
+                <div class="LegendLabel">Prime Farmland Soils</div>
+                <div class="LegendSymbol" style="width:24px;height:16px;background-image:url('Custom/Legends/ThematicMaps/LC.png');background-position:0px -0px;"></div>
+                <div class="LegendLabel">Protected Open Space</div>
+                <div class="LegendSymbol" style="width:190px;height:176px;background-image:url('Custom/Legends/ThematicMaps/LC.png');background-position:0px -16px;"></div>
+              </div>
+              <div id="pnlThematicMaps_LU" class="Legend">
+                <div class="LegendLabel">Land Use</div>
+                <div class="LegendSymbol" style="width:223px;height:240px;background-image:url('Custom/Legends/ThematicMaps/LU.png');background-position:0px -0px;"></div>
+              </div>
+              <div id="pnlThematicMaps_WT" class="Legend">
+                <div class="LegendLabel">DEP Wetlands (Must zoom in to make visible)</div>
+                <div class="LegendSymbol" style="width:166px;height:80px;background-position:0px -0px;background-image:url('Custom/Legends/ThematicMaps/WT.png');"></div>
+                <div class="LegendLabel">DEP Wetlands</div>
+                <div class="LegendSymbol" style="width:166px;height:112px;background-position:0px -80px;background-image:url('Custom/Legends/ThematicMaps/WT.png');"></div>
+              </div>
+            </div>
+          </div>
+          <div id="pnlMapLink">
+            Use the link below to return to this map.<br />
+            <input type="text" id="tboMapLink" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="search" class="Panel Dockable" style="z-index:18;behavior:url(Styles/PIE.htc);left:40px;top:160px;width:260px;height:340px;">
+      <div class="PanelBody" style="behavior: url(Styles/PIE.htc)">
+        <div class="PanelHeader" style="behavior: url(Styles/PIE.htc)">
+          <h2>Search CSOs</h2>
+          <div id="searchControls" class="PanelControls">
+            <span id="cmdLocalHelpSearch" class="LocalHelp" title="Help">?</span>
+            <span class="PanelClose" title="Close">x</span>
+          </div>
+        </div>
+        <div id="searchContent" class="PanelContent">
+          <input name="tboSearch" type="text" id="tboSearch" value="Enter CSO's name, category, or activity" />
+          <div id="pnlSearchCount"></div>
+          <div id="pnlShowAllResults">
+            <span id="cmdShowAllResults" class="Link" style="display: none">Show All on Map</span>
+          </div>
+          <div id="pnlSearchResultsScroll">
+            <span id="spnSearchMessage" class="Watermark">Search results will display here</span>
+            <div id="pnlSearchResults"></div>
+          </div>
+          <div id="pnlSearchPage"></div>
+          <div id="pnlSearchSort">
+            Sort by <select name="ddlSearchSort" id="ddlSearchSort">
+              <option selected="selected" value="address">Category</option>
+              <option value="owner">Activity</option>
+              <option value="id">CSO Name</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="propertyInfo" class="Panel Dockable Docked" style="z-index:16;behavior:url(Styles/PIE.htc);left:235px;top:0px;width:90px;height:20px;">
+      <div class="PanelBody" style="behavior: url(Styles/PIE.htc)">
+        <div class="PanelHeader" style="behavior: url(Styles/PIE.htc)">
+          <h2>CSO's Info</h2>
+          <div id="propertyInfoControls" class="PanelControls" style="display:none;">
+            <span id="cmdLocalHelpPropertyInfo" class="LocalHelp" title="Help">?</span>
+            <span class="PanelClose" title="Close">x</span>
+          </div>
+        </div>
+        <div id="propertyInfoContent" class="PanelContent" style="display:none;">
+          <table id="tblPropertyAddress">
+            <tr>
+              <td class="Label">Name</td>
+              <td class="Value"><span data-item="cso_name"></span></td>
+            </tr>
+          </table>
+          <div id="propertyInfoScroll" style="bottom:26px;">
+            <div id="propertyInfoScrollInner">
+              <table id="tblPropertyData">
+                <tr id="groupGeneralInfo">
+                  <td class="GroupHeader" colspan="2"><div class="GroupHeader">General Info <div id="moreProperty" class="ShowMoreInfo">more</div></div></td>
+                </tr>
+                <tr id="rowRegistration">
+                  <td class="Label">Registration</td>
+                  <td class="Value"><span data-item="registrationnum"></span></td>
+                </tr>
+                <tr id="rowNeighborhood" class="MoreInfo Property">
+                  <td class="Label">Date of Regist.</td>
+                  <td class="Value"><span data-item="registrationdate"></span></td>
+                </tr>
+                <tr id="rowCSOTypeName" class="MoreInfo Property">
+                  <td class="Label">CSO Type</td>
+                  <td class="Value"><span data-item="CSOTypeName"></span></td>
+                </tr>
+                <tr id="rowLocalAddress" class="MoreInfo Property">
+                  <td class="Label">Address</td>
+                  <td class="Value"><span data-item="mailaddress"></span></td>
+                </tr>
+                <tr id="rowLocalBuilding" class="MoreInfo Property">
+                  <td class="Label">Building</td>
+                  <td class="Value"><span data-item="building"></span></td>
+                </tr>
+                <tr id="rowStreet" class="MoreInfo Property">
+                  <td class="Label">Street</td>
+                  <td class="Value"><span data-item="street"></span></td>
+                </tr>
+                <tr id="rowTelephone" class="MoreInfo Property">
+                  <td class="Label">Telephone</td>
+                  <td class="Value"><span data-item="telephone"></span></td>
+                </tr>
+                <tr id="rowCellPhone" class="MoreInfo Property">
+                  <td class="Label">Cell phone</td>
+                  <td class="Value"><span data-item="cellphone"></span></td>
+                </tr>
+                <tr id="rowEmail" class="MoreInfo Property">
+                  <td class="Label">Email</td>
+                  <td class="Value"><span data-item="email"></span></td>
+                </tr>
+                <tr id="rowWebSite" class="MoreInfo Property">
+                  <td class="Label">Web Site</td>
+                  <td class="Value"><span data-item="website"></span></td>
+                </tr>
+                <tr id="rowRespondent" class="MoreInfo Property">
+                  <td class="Label">Contact Person</td>
+                  <td class="Value"><span data-item="respondent"></span></td>
+                </tr>
+                <tr id="rowRespondPosition" class="MoreInfo Property">
+                  <td class="Label">Position</td>
+                  <td class="Value"><span data-item="respondposition"></span></td>
+                </tr>
+                <tr id="rowRespondPhone" class="MoreInfo Property">
+                  <td class="Label">Phone</td>
+                  <td class="Value"><span data-item="respondphone"></span></td>
+                </tr>
+                <tr id="rowCSOObject" class="MoreInfo Property">
+                  <td class="Label">Object</td>
+                  <td class="Value"><span data-item="CSOObject"></span></td>
+                </tr>
+                <tr id="groupActivity">
+                  <td class="GroupHeader" colspan="2"><div class="GroupHeader">Projects</div></td>
+                </tr>
+                <tr id="rowOwnerName">
+                  <td class="Label">Sector</td>
+                  <td class="Value"><span data-item="ownerName"></span></td>
+                </tr>
+                <tr id="rowOwnerAddress">
+                  <td class="Label">Sub-Sector</td>
+                  <td class="Value"><span data-item="SubSectorID"></span></td>
+                </tr>
+                <tr id="groupFinance">
+                  <td class="GroupHeader" colspan="2"><div class="GroupHeader">Finance<div id="moreValuation" class="ShowMoreInfo">more</div></div></td>
+                </tr>
+                <tr id="rowGrantsValue">
+                  <td class="Label">Grants</td>
+                  <td class="Value"><span data-item="grantsValue"></span></td>
+                </tr>
+                <tr id="rowSubsidyValue">
+                  <td class="Label">Subsidy</td>
+                  <td class="Value"><span data-item="subsidyValue"></span></td>
+                </tr>
+                <tr id="rowEquityValue" class="MoreInfo Valuation">
+                  <td class="Label">Equity</td>
+                  <td class="Value"><span data-item="equityValue"></span></td>
+                </tr>
+                <tr id="rowLoansValue" class="MoreInfo Valuation">
+                  <td class="Label">Loans Debts</td>
+                  <td class="Value"><span data-item="loansValue"></span></td>
+                </tr>
+                <tr id="rowSavingsValue" class="MoreInfo Valuation">
+                  <td class="Label">Savings</td>
+                  <td class="Value"><span data-item="SavingsValue"></span></td>
+                </tr>
+                <tr id="groupLink">
+                  <td class="GroupHeader" colspan="2"><div class="GroupHeader">Linkages <div id="moreLand" class="ShowMoreInfo">more</div></div></td>
+                </tr>
+                <tr id="rowAssociations">
+                  <td class="Label">Associations</td>
+                  <td class="Value"><span data-item="Associations"></span></td>
+                </tr>
+                <tr id="rowgovDepart" class="MoreInfo Land">
+                  <td class="Label">Gov Department</td>
+                  <td class="Value"><span data-item="govDepart"></span></td>
+                </tr>
+                <tr id="rowNGO">
+                  <td class="Label">Other NGOs</td>
+                  <td class="Value"><span data-item="NGO"></span></td>
+                </tr>
+
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="abutter" class="Panel Dockable Docked" style="z-index:14;behavior:url(Styles/PIE.htc);left:335px;top:0px;width:90px;height:20px;">
+      <div class="PanelBody" style="behavior: url(Styles/PIE.htc)">
+        <div class="PanelHeader" style="behavior: url(Styles/PIE.htc)">
+          <h2>Near CSOs</h2>
+          <div id="abutterControls" class="PanelControls" style="display:none;">
+            <span id="cmdLocalHelpAbutters" class="LocalHelp" title="Help">?</span>
+            <span class="PanelClose" title="Close">x</span>
+          </div>
+        </div>
+        <div id="abutterContent" class="PanelContent" style="display:none;">
+          <div id="abutterParams">
+            Search distance <input name="tboAbutterDistance" type="text" id="tboAbutterDistance" value="100" /> m
+            <span id="spnAbutterLimit" style="display: none">(limited to 500 m)</span>
+          </div>
+          <div id="abutterResultsScroll" style="bottom:37px;">
+            <div id="abutterResults"></div>
+          </div>
+          <div id="pnlAbutterSort" style="bottom:11px;">
+            Sort by <select name="ddlAbutterSort" id="ddlAbutterSort">
+              <option value="siteAddressSort">Category</option>
+              <option value="ownerName">Activity</option>
+              <option value="id">CSO Name</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="clientInfo" class="Panel Dockable Docked" style="z-index:12;behavior:url(Styles/PIE.htc);left: 435px; top: 0px; width: 120px; height: 20px;">
+      <div class="PanelBody" style="behavior: url(Styles/PIE.htc)">
+        <div class="PanelHeader" style="behavior: url(Styles/PIE.htc)">
+          <h2 id="labClientInfoTitle">CSOs Database</h2>
+          <div id="clientInfoControls" class="PanelControls" style="display:none;">
+            <span id="cmdLocalHelpClientInfo" class="LocalHelp" title="Help">?</span>
+            <span class="PanelClose" title="Close">x</span>
+          </div>
+        </div>
+        <div id="clientInfoContent" class="PanelContent">
+          <div>
+            <div id="pnlMuniLogo">
+              <a href="http://www.csudp.org/" target="_blank"><img src="Custom/Images/csudplogo.png" border="0" title="Go to CSUDP Home Page" /></a><p></p>
+              <div id="pnlAppGeoLogo">
+                <a href="http://www.spatialwise.com/" target="_blank"><img src="Images/spatialwise.png" title="Visit SpatialWise Home Page" /></a>
+              </div>
+            </div>
+            <div id="clientInfoView">
+              <div id="cmdSiteContact" class="Expander ClientExpander Closed" style="behavior: url(Styles/PIE.htc)">Site&nbsp;Contact&nbsp;&nbsp;<span>&#9660</span></div>
+              <div id="cmdDisclaimer" class="Expander ClientExpander Closed" style="behavior: url(Styles/PIE.htc)">Disclaimer&nbsp;&nbsp;<span>&#9660</span></div>
+              <div id="cmdComments" class="Expander ClientExpander Closed" style="behavior: url(Styles/PIE.htc)">Comments&nbsp;&nbsp;<span>&#9660</span></div>
+              <div id="clientInfoCommon">
+                <div id="pnlSiteContact" class="ClientInfo" style="display: none">
+                  <span id="spnContactName"><a href="mailto:veronica.machira@csudp.org">Veronica Machira, ICT Officer<br/></a></span>
+                  <span id="spnContactAddress">Methodist Ministries Centre, Block B, 2nd Floor, Oloitoktok Rd, Nairobi<br/></span>
+                  <span id="spnContactPhone">+254-20-4947204<br/></span>
+                </div>
+                <div id="pnlDisclaimer" class="ClientInfo" style="display: none">
+                  <ul>
+                    <li>Wards updated July 1, 2012</li>
+                    <li>CSO's database updated July 1, 2012</li>
+                  </ul>
+                  <p id="pDisclaimer">The data available here is updated in the normal course of business and may not always represent the most current information. In addition, some of the data contained herein may have changed and the accuracy of that information cannot be confirmed. <br/><br/> CSUDP and SpatialWise, respectively, do not make any warranty, representation, or guarantee as to the content, sequence, accuracy, timeliness, or completeness of any of the information provide herein. The user should not rely on the data provided herein without verifying its accuracy independently. CSUDP and SpatialWise, respectively, explicitly disclaim any representations and warranties including, without limitation, the implied warranties of merchantability and fitness for a particular purpose. <br/><br/> CSUDP and SpatialWise, respectively, shall assume no liability for any errors, omissions, or inaccuracies in the information provided regardless of how caused and for any decision made or action taken or not taken by the user in reliance upon any information of data furnished hereunder. <br/><br/> If you identify any data problems please use the "Comments" function to notify the CSUDP. </p>
+                </div>
+                <div id="pnlComments" class="ClientInfo" style="display: none">
+                  <table>
+                    <tr>
+                      <td style="width: 100px" class="Label">Comment On</td>
+                      <td class="Value">
+                        <select id="ddlCommentType" style="width: 204px">
+                            <option value="">Please Select:</option>
+                            <option value="Data Issues">Data Issues</option>
+                            <option value="Map Issues">Map Issues</option>
+                             <option value="Site Functionality">Site Functionality</option>
+                            <option value="Site Performance">Site Performance</option>
+                            <option value="Other">Other</option>
+                        </select>
+                        <span id="errMsgCommentType" class="CommentsError">*</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="Label">Other </td>
+                      <td class="Value"><input type="text" id="txtOther" style="width: 200px"/> <span id="errMsgOther" class="CommentsError">*</span></td>
+                    </tr>
+                    <tr>
+                      <td class="Label">Your Email</td>
+                      <td class="Value"><input type="text" id="txtContactEmail" style="width: 200px" /></td>
+                    </tr>
+                    <tr>
+                      <td class="Label" colspan="2">Comment <span id="errMsgComments" class="CommentsError">*</span><br/>
+                      <textarea id="txtComments" cols="20" rows="5" style="width: 300px"></textarea>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td colspan="2">
+                        <input type="button" id="btnSendComments" value="Send" />&nbsp;&nbsp;
+                        <input type="button" id="btnResetComments" value="Clear Form" />
+                      </td>
+                    </tr>
+                  </table>
+                  <br />
+                  <div id="pnlCommentsErrorMsg">
+                    <span id="errMsgRequiredFields" class="CommentsError">*</span> = Required Field
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+    <div id="help" class="Panel Dockable Docked" style="z-index:10;behavior:url(Styles/PIE.htc);left:565px;top:0px;width:50px;height:20px;">
+      <div class="PanelBody" style="behavior: url(Styles/PIE.htc)">
+        <div class="PanelHeader" style="behavior: url(Styles/PIE.htc)">
+          <h2>Help</h2>
+          <div id="helpControls" class="PanelControls" style="display:none;">
+            <span class="PanelClose">x</span>
+          </div>
+        </div>
+        <div id="helpContent" class="PanelContent" style="display:none;">
+          <div id="helpExpanders">
+            <div id="cmdHelpGeneral" class="Expander HelpExpander" style="behavior: url(Styles/PIE.htc)">General</div>
+            <div id="cmdHelpMaps" class="Expander HelpExpander" style="behavior: url(Styles/PIE.htc)">Maps</div>
+            <div id="cmdHelpSearch" class="Expander HelpExpander" style="behavior: url(Styles/PIE.htc)">Search&nbsp;CSOs</div>
+            <div id="cmdHelpPropertyInfo" class="Expander HelpExpander" style="behavior: url(Styles/PIE.htc)">CSO's&nbsp;Info</div>
+            <div id="cmdHelpAbutters" class="Expander HelpExpander" style="behavior: url(Styles/PIE.htc)">Near&nbsp;CSOs</div>
+            <div id="cmdHelpClientInfo" class="Expander HelpExpander" style="behavior: url(Styles/PIE.htc)">CSOs&nbsp;Database</div>
+          </div>
+          <a id="cmdDownloadHelp" href="MapGeoHelp.pdf">Download Help PDF</a>
+          <div id="helpDocContainer">
+            <iframe id="helpDoc" width="100%" height="100%"></iframe>
+          </div>
+          <div id="labVersion"><span id="spnVersion">CSOsMap version 1.0 (July 1, 2012)</span>&nbsp;&nbsp;&nbsp; <span id="cmdWhatsNew" class="Link">What's new?</span></div>
+        </div>
+      </div>
+    </div>
+    <input type="text" id="tboDrawText" style="display: none" />
+    <div id="pnlInsetContainer" class="Panel" style="behavior:url(Styles/PIE.htc);width:35px;height:35px;">
+      <div id="insetFrame">
+        <div id="insetMap" style="width:235px;height:140px;"></div>
+      </div>
+      <div id="cmdInsetSize" style="background-image:url(Images/InsetGrow.png);"></div>
+    </div>
+    <div id="pnlContextMenu" style="left: -1000px; behavior: url(Styles/PIE.htc)">
+      <div id="optToolPan" class="ToolOption Selected" data-mode="pan">Pan / Identify</div>
+      <div id="optToolLength" class="ToolOption" data-mode="measureLength">Measure Length</div>
+      <div id="optToolArea" class="ToolOption" data-mode="measureArea">Measure Area</div>
+      <div id="optToolDrawLine" class="ToolOption" data-mode="drawLineString">Draw Line</div>
+      <div id="optToolDrawPolygon" class="ToolOption" data-mode="drawPolygon">Draw Polygon</div>
+      <div id="optToolDrawText" class="ToolOption" data-mode="drawText">Draw Text</div>
+      <div id="optToolDrawErase" class="ToolOption" data-mode="drawErase">Erase</div>
+      <div id="pnlDrawColor"><div id="cmdDrawColor"></div><span>Drawing Color</span></div>
+      <div id="cmdDrawEraseAll" class="ToolCommand Link">Erase All</div>
+    </div>
+    
+    
+  </div>
+  <form id="frmExport" action="http://www.mapgeo.com/beverlyma/Export.ashx" method="post">
+    <input type="hidden" id="hdnExportType" name="type" />
+    <input type="hidden" id="hdnExportSubject" name="subject" />
+    <input type="hidden" id="hdnExportIds" name="ids" />
+    <input type="hidden" id="hdnExportDistance" name="distance" />
+    <input type="hidden" id="hdnExportSort" name="sort" />
+  </form>
+  <form id="frmPrintableMap" action="http://www.mapgeo.com/beverlyma/PrintableMap.ashx" method="post" target="_blank">
+    <input type="hidden" id="hdnPrintConfig" name="printConfig" />
+    <input type="hidden" id="hdnShowWaiting" name="showWaiting" value="1" />
+  </form>
+
+  <!-- Google Analytics -->
+
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-28097850-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function () {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+</body>
+</html>

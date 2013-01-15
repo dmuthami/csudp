@@ -1,0 +1,63 @@
+﻿#zoomBar
+{
+  position: absolute;
+  left: 10px;
+  top: 35px;
+  cursor: default;
+}
+
+#zoomBarPlus, #zoomBarActive, .ZoomBar, #zoomBarMinus
+{
+  display: block;
+  width: 17px;
+}
+
+#zoomBarPlus, .ZoomBar, #zoomBarMinus
+{
+  background: transparent url(../Images/ZoomBar.png) no-repeat;
+}
+
+#zoomBarPlus
+{
+  height: 17px;
+  margin-bottom: 3px;
+}
+
+#zoomBarActive
+{
+  margin-bottom: 3px;
+}
+
+#zoomBarTop
+{
+  height: 10px;
+  background-position: -18px 0px;
+}
+
+.ZoomBar.Middle
+{
+  height: 8px;
+  background-position: -36px 0px;
+}
+
+#zoomBarBottom
+{
+  height: 11px;
+  background-position: -54px 0px;
+}
+
+#zoomBarMinus
+{
+  height: 17px;
+  background-position: -72px 0px;
+}
+
+#zoomBarSlider
+{
+  position: absolute;
+  display: block;
+  left: 0px;
+  top: 22px;
+  height: 9px;
+  background-position: -90px 0px;
+}

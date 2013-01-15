@@ -1,0 +1,1168 @@
+﻿clientInfoViewbody
+{
+  overflow: hidden;
+}
+
+li
+{
+  margin-left: 15px;
+  list-style-type: none;
+}
+
+.Watermark
+{
+  color: #D0D0D0;
+}
+
+#map
+{
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  bottom: 0px;
+  right: 0px;
+}
+
+#mapTip
+{
+  position: absolute;
+  display: none;
+  padding: 5px;
+  font-size: 11px;
+  background-color: #F8F8F8;
+  border: solid 1px Silver;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-box-shadow: #909090 2px 2px 4px;
+  -moz-box-shadow: #909090 2px 2px 4px;
+  box-shadow: #909090 2px 2px 4px;
+}
+
+.MapTip.Link
+{
+  margin-right: 6px;
+}
+
+.MapTipControls
+{
+  line-height: 14px;
+}
+
+#mapTipContent
+{
+  cursor: default;
+}
+
+#zoomPanel, #touchPanel
+{
+  position: absolute;
+  left: 10px;
+  width: 38px;
+  background-color: #8080A8;
+  background: -webkit-gradient(linear, left bottom, right bottom, color-stop(0.0, #8080A8), color-stop(0.5, #A0A0D0), color-stop(1.0, #8080A8));
+  background: -moz-linear-gradient(0deg, #8080A8, #A0A0D0, #8080A8);
+  -pie-background: linear-gradient(0deg, #8080A8, #A0A0D0, #8080A8);
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-box-shadow: #909090 2px 2px 4px;
+  -moz-box-shadow: #909090 2px 2px 4px;
+  box-shadow: #909090 2px 2px 4px;
+  opacity: 0.5;
+}
+
+#zoomPanel
+{
+  top: 10px;
+}
+
+#cmdZoomFull
+{
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  width: 17px;
+  height: 17px;
+  background-image: url(../Images/FullView.png);
+}
+
+#touchPanel
+{
+  height: 40px;
+}
+
+#cmdTouch
+{
+  position: absolute;
+  left: 10px;
+  top: 8px;
+  width: 19px;
+  height: 24px;
+  background-image: url(../Images/Touch.png);
+}
+
+#scaleBarPanel
+{
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  width: 116px;
+  height: 40px;
+  background-color: #F8F8F8;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-box-shadow: #909090 2px 2px 4px;
+  -moz-box-shadow: #909090 2px 2px 4px;
+  box-shadow: #909090 2px 2px 4px;
+  opacity: 0.9;
+}
+
+#scaleBar
+{
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  width: 96px;
+  height: 6px;
+  background-color: #202020;
+}
+
+#scaleText
+{
+  position: absolute;
+  left: 10px;
+  top: 22px;
+  width: 96px;
+  text-align: center;
+  color: #202020;
+}
+
+#copyright
+{
+  position: absolute;
+  left: 146px;
+  bottom: 10px;
+  padding: 2px 4px 2px 4px;
+  background-color: White;
+  color: Black;
+  font-size: 11px;
+  opacity: 0.9;
+}
+
+.Label
+{
+  font-weight: bold;
+  color: #606060;
+}
+
+.Panel
+{
+  position: absolute;
+  background-color: White;
+  border: solid 1px #8080A8;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-box-shadow: #909090 2px 2px 4px;
+  -moz-box-shadow: #909090 2px 2px 4px;
+  box-shadow: #909090 2px 2px 4px;
+  z-index: 10;
+}
+
+.PanelBody, .PanelHeader
+{
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+}
+
+.PanelBody
+{
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.PanelHeader
+{
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 20px;
+  background-color: #8080A8;
+  background: -webkit-gradient(linear, 0 0, 0 bottom, color-stop(0.0, #8080A8), color-stop(0.5, #A0A0D0), color-stop(1.0, #8080A8));
+  background: -moz-linear-gradient(#8080A8, #A0A0D0, #8080A8);
+  -pie-background: linear-gradient(#8080A8, #A0A0D0, #8080A8);
+}
+
+.PanelHeader h2
+{
+  color: White;
+  font-family: Verdana, Arial, Helvetica, Sans-Serif;
+  font-size: 11px;
+  font-weight: bold;
+  margin: 4px 10px;
+  padding: 0;
+}
+
+.PanelHeader, .PanelHeader h2
+{
+  cursor: move;
+}
+
+.Docked .PanelHeader h2, .Docked .PanelHeader h2
+{
+  cursor: pointer;
+}
+
+.PanelClose, .LocalHelp
+{
+  display: block;
+  font-weight: bold;  
+  position: absolute;
+  color: #f6f6f6;
+  cursor: pointer;
+}
+
+.PanelClose
+{
+  font-family: Trebuchet MS;
+  font-size: 110%;
+  line-height: 8px;
+  width: 12px;
+  height: 12px;
+  text-align: center;
+  top: 4px;
+  right: 4px;
+}
+
+.LocalHelp
+{
+  font-family: Verdana, Arial, Helvetica, Sans-Serif;
+  font-size: 13px;
+  top: 3px;
+  right: 24px;
+}
+
+.PanelClose:hover, .LocalHelp:hover
+{
+  color: #fff;
+  text-decoration: none;
+}
+
+.PanelContent
+{
+  position: absolute;
+  left: 0px;
+  top: 20px;
+  right: 0px;
+  bottom: 0px;
+}
+
+.Expander
+{
+  color: #404054;
+  background-color: #E8E8F6;
+  font-family: Verdana, Arial, Helvetica, Sans-Serif;
+  font-size: 11px;
+  font-weight: bold;
+  padding: 0;
+  padding: 2px 4px 2px 4px;
+  border: solid 1px #8080A8;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.Expander.Disabled
+{
+  color: #AEAEE5;
+  cursor: default;
+}
+
+#pnlBaseMap
+{
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  width: 190px;
+}
+
+#pnlTheme
+{
+  position: absolute;
+  left: 210px;
+  top: 10px;
+  width: 190px;
+}
+
+#ddlBaseMap, #ddlThematicMap
+{
+  width: 180px;
+}
+
+#cmdLegend
+{
+  position: absolute;
+  left: 10px;
+  top: 75px;
+}
+
+#cmdPrintableMap
+{
+  position: absolute;
+  left: 96px;
+  top: 75px;
+}
+
+#cmdMapLink
+{
+  position: absolute;
+  left: 224px;
+  top: 75px;
+}
+
+#lnkGoogleStreetView, #lnkBingBirdsEye, #lnkMapGallery
+{
+  position: absolute;
+  display: block;
+  width: 18px;
+  height: 18px;
+}
+
+#lnkMapGallery
+{
+  background-image: url(../Images/Gallery.png);
+  right: 56px;
+  top: 75px;
+}
+
+#lnkGoogleStreetView
+{
+  background-image: url(../Images/Google.png);
+  right: 33px;
+  top: 75px;
+}
+
+#lnkBingBirdsEye
+{
+  background-image: url(../Images/Bing.png);
+  right: 10px;
+  top: 75px;
+}
+
+#pnlLegend, #pnlPrintableMap, #pnlMapLink
+{
+  position: absolute;
+  left: 10px;
+  top: 105px;
+  display: none;
+}
+
+#tboMapLink
+{
+  margin-top: 4px;
+  width: 374px;
+}
+
+.LegendScroll
+{
+  position: absolute;
+  width: 190px;
+  height: 365px;
+  overflow: auto;
+}
+
+#pnlThematicMapLegend
+{
+  left: 200px;
+}
+
+.Legend
+{
+  display: none;
+}
+
+.LegendLabel
+{
+  position: relative;
+}
+
+.LegendSymbol
+{
+  position: relative;
+  margin-top: 3px;
+  margin-left: 15px;
+  margin-bottom: 10px;
+}
+
+.MapType
+{
+  font-size: 11px;
+  margin-bottom: 2px;
+}
+
+#pnlInsetContainer
+{
+  right: 6px;
+  bottom: 6px;
+}
+
+#cmdInsetSize
+{
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  width: 14px;
+  height: 14px;
+  border-left: solid 1px White;
+  border-top: solid 1px White;
+  border-right: solid 1px Silver;
+  border-bottom: solid 1px Silver;
+}
+
+#insetFrame
+{
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  right: 2px;
+  bottom: 2px;
+  border: solid 1px Silver;
+  overflow: hidden;
+}
+
+#insetMap
+{
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+#tboSearch
+{
+  position: absolute;
+  left: 10px;
+  top: 8px;
+  width: 90%;
+}
+
+#pnlSearchCount
+{
+  position: absolute;
+  left: 10px;
+  top: 34px;
+  right: 10px;
+  font-size: 11px;
+}
+
+#pnlShowAllResults
+{
+  position: absolute;
+  text-align: right;
+  left: 10px;
+  top: 34px;
+  right: 10px;
+  font-size: 11px;
+}
+
+#pnlSearchResultsScroll
+{
+  position: absolute;
+  left: 10px;
+  top: 55px;
+  right: 10px;
+  bottom: 36px;
+  background-color: White;
+  border: solid 1px Silver;
+  padding: 5px;
+  overflow: auto;
+}
+
+.SearchResult, .AbutterResult
+{
+  margin-bottom: 6px;
+}
+
+.SearchResultText, .AbutterText
+{
+  font-size: 11px;
+  margin-top: 2px;
+}
+
+#pnlSearchPage
+{
+  position: absolute;
+  left: 12px;
+  bottom: 12px;  
+}
+
+#pnlSearchSort
+{
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+  width: 142px;
+}
+
+.SearchPage
+{
+  margin-right: 5px;
+}
+
+span.SearchPage
+{
+  font-weight: bold;
+}
+
+#tblPropertyAddress
+{
+  position: absolute;
+  left: 8px;
+  top: 8px;
+}
+
+#propertyInfoScroll
+{
+  position: absolute;
+  left: 8px;
+  top: 32px;
+  right: 8px;
+  bottom: 8px;
+  padding-top: 8px;
+  border: solid 1px Silver;
+  overflow: auto;
+}
+
+#propertyInfoScrollInner
+{
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  right: 8px;
+}
+
+#tblPropertyAddress td, #tblPropertyData td, #tblPropertyAddress select
+{
+  font-size: 11px;
+}
+
+#tblPropertyAddress td.Label, #tblPropertyData td.Label
+{
+  text-align: right;
+  padding-right: 5px;
+  width: 90px;
+}
+
+#tblPropertyData
+{
+  width: 100%;
+}
+
+#tblPropertyData td.GroupHeader
+{
+  padding-top: 6px;
+}
+
+#tblPropertyData div.GroupHeader
+{
+  position: relative;
+  width: 100%;
+  padding: 4px 4px;
+  height: 12px;
+  font-weight: bold;
+  color: #404054;
+  background-color: #E8E8F6;
+}
+
+.ShowMoreInfo
+{
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 30px;
+  text-align: right;
+  font-weight: normal;
+  cursor: pointer;
+}
+
+.ShowMoreInfo:hover
+{
+  text-decoration: underline;
+}
+
+.MoreInfo
+{
+  display: none;
+}
+
+#pnlPropertyInfoLinks
+{
+  position: absolute;
+  left: 12px;
+  bottom: 8px;
+  line-height: 0.7em;
+}
+
+#abutterParams
+{
+  position: absolute;
+  left: 8px;
+  top: 8px;
+}
+
+#tboAbutterDistance
+{
+  width: 40px;
+}
+
+#spnAbutterLimit
+{
+  font-size: 11px;
+  margin-left: 15px;
+  color: #A00000;
+}
+
+#abutterResultsScroll
+{
+  position: absolute;
+  left: 8px;
+  top: 36px;
+  right: 8px;
+  bottom: 39px;
+  background-color: White;
+  border: solid 1px Silver;
+  overflow: auto;
+}
+
+#abutterResults
+{
+  position: absolute;
+  left: 8px;
+  top: 8px;
+  right: 8px;
+}
+
+.AbutterTextMain
+{
+  float: left;
+  font-weight: bold;
+}
+
+.AbutterRemove
+{
+  float: right;
+}
+
+.AbutterText
+{
+  clear: right;
+}
+
+.AbutterRemove .Link
+{
+  font-size: 11px;
+}
+
+#pnlAbutterCommands
+{
+  position: absolute;
+  left: 12px;
+  bottom: 6px;
+  line-height: 16px;
+}
+
+#pnlAbutterSort
+{
+  position: absolute;
+  right: 8px;
+  bottom: 13px;
+  width: 142px;
+}
+
+#pnlCSUDPLogo, #clientInfoView
+{
+  position: relative;
+  float: left;
+  margin: 10px;
+}
+
+#pnlSpatialWiseLogo
+{
+  position: relative;
+  width: 100%;
+  margin-top: 0px;
+  text-align: center;
+}
+
+#clientInfoView > div
+{
+  position: absolute;
+}
+
+#lnkLogin
+{
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
+
+#cmdSiteContact
+{
+  position: absolute;
+  width: 95px;
+}
+
+#cmdDisclaimer
+{
+  position: absolute;
+  left: 115px;
+  width: 85px;
+}
+
+#cmdComments
+{
+  position: absolute;
+  left: 220px;
+  width: 85px;
+}
+
+#clientInfoCommon
+{
+  position: absolute;
+  top: 30px;
+  width: 305px;
+}
+
+.ClientInfo
+{
+  position: absolute;
+  line-height: 15px;
+}
+
+#pnlDisclaimer li, #pnlWelcome li
+{
+  list-style-type: disc;
+}
+
+#pDisclaimer, #pWelcomeDisclaimer
+{
+  font-size: 11px;
+  line-height: 12px;
+}
+
+#helpExpanders
+{
+  position: absolute;
+  left: 8px;
+  top: 8px;
+}
+
+.HelpExpander
+{
+  position: absolute;
+}
+
+#cmdHelpMaps
+{
+  left: 68px;
+}
+
+#cmdHelpSearch
+{
+  left: 118px;
+}
+
+#cmdHelpPropertyInfo
+{
+  top: 20px;
+}
+
+#cmdHelpAbutters
+{
+  left: 83px;
+  top: 20px;
+}
+
+#cmdHelpClientInfo
+{
+  left: 168px;
+  top: 20px;
+}
+
+#helpDocContainer
+{
+  position: absolute;
+  border: solid 1px Silver;
+  left: 8px;
+  top: 50px;
+  right: 8px;
+  bottom: 22px;
+}
+
+#labVersion
+{
+  position: absolute;
+  left: 8px;
+  bottom: 6px;
+  height: 11px;
+  font-size: 11px;
+  color: #B0B0B0;
+}
+
+#cmdWhatsNew
+{
+  color: #8080FF;
+}
+
+#cmdDownloadHelp
+{
+  position: absolute;
+  top: 10px;
+  right: 8px;
+}
+
+#pnlModalBackground
+{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #808080;
+  /*background-image: url(../Images/ModalBackground.png);
+  background-repeat: repeat;*/
+  opacity: 0.8;
+  filter: alpha(opacity=80);
+}
+
+#pnlWelcome
+{
+  position: absolute;
+  display: block;
+  width: 400px;
+  height: 370px;
+  padding: 10px 20px 10px 20px;
+  left: -501px;
+  background-color: White;
+  border: solid 1px #606060;
+}
+
+#pnlWelcome ul
+{
+  line-height: 15px;
+}
+
+.MapSlider
+{
+  position: relative;
+  margin-top: 4px;
+  height: 14px;
+}
+
+.MapSliderBar
+{
+  position: absolute;
+  top: 5px;
+  width: 108px;
+  height: 3px;
+  border: solid 1px #606084;
+  -moz-border-radius: 2px; 
+  -webkit-border-radius: 2px; 
+  border-radius: 2px;
+}
+
+#baseMapSlider, #thematicMapSlider 
+{
+  position: absolute;
+  left: 5px;
+  width: 100px;
+}
+
+.MapSliderGradient
+{
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+}
+
+.ui-slider
+{ 
+  position: relative;
+}
+
+.ui-slider-horizontal 
+{ 
+  height: 15px; 
+}
+
+.ui-slider .ui-slider-handle 
+{ 
+  position: absolute; 
+  width: 15px; 
+  height: 15px; 
+  background-image: url(../Images/Slider.png);
+  cursor: default; 
+}
+
+.ui-slider .ui-slider-handle.ui-state-hover
+{
+  background-position: 15px 0px;
+}
+
+.ui-slider-horizontal .ui-slider-handle 
+{ 
+  margin-left: -7px; 
+}
+
+.ui-resizable-handle 
+{
+  position: absolute;
+  display: block;
+  font-size: 0.1px;
+  z-index: 99999;
+}
+
+
+.ui-resizable-n, .ui-resizable-s, .ui-resizable-se, .ui-resizable-sw, .ui-resizable-nw
+{
+  height: 12px;
+}
+
+.ui-resizable-e, .ui-resizable-w, .ui-resizable-se, .ui-resizable-sw, .ui-resizable-nw
+{
+  width: 12px;
+}
+
+.ui-resizable-n 
+{
+  left: 6px;
+  top: -8px;
+  right: 40px;
+  cursor: n-resize;
+}
+
+.ui-resizable-ne 
+{
+  width: 0px;
+  height: 0px;
+}
+
+.ui-resizable-e 
+{
+  top: 20px;
+  right: -6px;
+  bottom: 6px;
+  cursor: e-resize;
+}
+
+.ui-resizable-se 
+{
+  right: -6px;
+  bottom: -6px;
+  cursor: se-resize;
+}
+
+.ui-resizable-s 
+{
+  left: 6px;
+  right: 6px;
+  bottom: -6px;
+  cursor: s-resize;
+}
+
+.ui-resizable-sw 
+{
+  left: -6px;
+  bottom: -6px;
+  cursor: sw-resize;
+}
+
+.ui-resizable-w 
+{
+  left: -6px;
+  top: 4px;
+  bottom: 6px;
+  cursor: w-resize;
+}
+
+.ui-resizable-nw 
+{
+  left: -6px;
+  top: -8px;
+  cursor: nw-resize;
+}
+
+#pnlContextMenu, .ColorSelector
+{
+  position: absolute;
+  border: solid 1px #8080A8;
+  background-color: White;
+  -webkit-box-shadow: #909090 2px 2px 4px;
+  -moz-box-shadow: #909090 2px 2px 4px;
+  box-shadow: #909090 2px 2px 4px;
+}
+
+#pnlContextMenu
+{
+  padding: 8px;
+  width: 130px;
+  height: 170px;
+}
+
+.ToolOption, .ToolCommand
+{
+  padding: 2px 2px 2px 15px;
+  cursor: pointer;
+  border: solid 1px White;
+}
+
+.ToolOption.Selected
+{
+  background: url(../Images/Check.png) no-repeat;
+  cursor: default;
+}
+
+.ToolOption:hover
+{
+  border: solid 1px silver;
+}
+
+#pnlDrawColor
+{
+  padding: 2px 2px 2px 0px;
+  border: solid 1px White;
+}
+
+#pnlDrawColor span
+{
+  cursor: pointer;
+}
+
+#cmdDrawColor
+{
+  display: inline-block;
+  width: 9px; 
+  height: 9px; 
+  margin-right: 4px;
+  background-color: #808080;
+  border: solid 1px #E0E0E0;
+  cursor: pointer;
+}
+
+.ColorSelector span
+{ 
+  color: Blue;
+}
+
+.ColorSelector span:hover
+{
+  text-decoration: underline; 
+}
+
+#tboDrawText
+{
+  position: absolute;
+  width: 200px;
+  height: 17px;
+  border: solid 1px Gray;
+  padding: 1px 0px 1px 2px;
+  color: Gray;
+  background-color: transparent;
+  font-weight: bold;
+}
+
+.DrawText
+{
+  position: relative;
+  top: -21px;
+  height: 17px;
+  padding: 2px 0px 2px 3px;
+  font-weight: bold;  
+}
+
+.Measurement
+{
+  color: #404040;
+}
+
+.ContactInfo
+{
+  font-size: 11px;
+  background-color: #FFFFC0;
+  overflow:visible;
+}
+
+.ContactInfoText
+{
+    position:absolute;
+    top: -120px;
+    left: 125px;
+    height:100px;
+    width:210px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.CommonModalBackground
+{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url(../Images/ModalBackground.png);
+  background-repeat: repeat;
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+}
+
+.CommentsError
+{
+    font-size:25px;
+    font-weight:bold;
+    color: #FF0000;
+    /*height:30px;
+    width:30px;*/
+    border:solid, 1px, black;
+}
+
+.SiteContactContent
+{
+  position: absolute;
+  left: 0px;
+  top: 20px;
+  right: 0px;
+  bottom: 0px;
+}
+
+.TileText
+{
+  position: absolute;
+  padding: 1px 2px 1px 2px;
+  background-color: White;
+  font-size: 11px;
+  left: -118px;
+  top: -118px;
+  width: 232px;
+  opacity: 0.85;
+  filter: alpha(opacity=85);
+}
+
+.geo-measure-label
+{
+  font-family: Arial, Helvetica, Sans-Serif;
+  font-size: 13px;
+  font-weight: normal;
+  letter-spacing: normal;
+  color: #202020;
+  text-shadow: #E0E0E0 1px 1px 2px;
+  filter: progid:DXImageTransform.Microsoft.DropShadow(Color=#E0E0E0, OffX=1, OffY=1, Positive=true);
+}

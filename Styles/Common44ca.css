@@ -1,0 +1,84 @@
+﻿html, body, div, span, iframe, a, img, form, table, tbody, tfoot, thead, tr, th, td, ul
+{
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+html, body
+{
+  height: 100%;
+}
+
+body
+{
+  line-height: 1;
+  font-family: Arial, Helvetica, Sans-Serif;
+  font-size: 13px;
+}
+
+a, a:visited, .Link
+{
+  color: Blue;
+  text-decoration: none;
+}
+
+a:hover, .Link:hover
+{
+  text-decoration: underline;
+}
+
+.Link
+{
+  cursor: pointer;
+}
+
+.Link.Disabled
+{
+  color: #A0A0A0;
+  text-decoration: none;
+  cursor: default;
+}
+
+.Link.Disabled:hover
+{
+  text-decoration: none;
+}
+
+.Header
+{
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 20px;
+  background: -webkit-gradient(linear, 0 0, 0 bottom, color-stop(0.0, #8080A8), color-stop(0.5, #A0A0D0), color-stop(1.0, #8080A8));
+  background: -moz-linear-gradient(#8080A8, #A0A0D0, #8080A8);
+  -pie-background: linear-gradient(#8080A8, #A0A0D0, #8080A8);
+}
+
+.HeaderTitle
+{
+  position: absolute;
+  left: 10px;
+  top: 4px;
+  color: White;
+  font-family: Verdana, Arial, Helvetica, Sans-Serif;
+  font-size: 11px;
+  font-weight: bold;
+  cursor: default;
+}
+
+.Content
+{
+  position: absolute;
+  left: 0px;
+  top: 20px;
+  width: 100%;
+  bottom: 0px;
+  background-color: #DFDFF2;
+}
