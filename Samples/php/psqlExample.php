@@ -5,6 +5,10 @@
  * and open the template in the editor.
  */
 
+/*
+ * File Name psqlExample
+ */
+
 $conn = pg_connect("dbname='cso' host='localhost' port='5432' user='postgres' password='Q4jqt3ee9H'");
 if (!$conn) {
     echo "An error occured during connection.\n";
@@ -17,16 +21,19 @@ if (!$result) {
     exit;
 }
 
-if (pg_num_rows($result) == 0) {
-    echo "0 records";
-} else {
-    print "<table border=1>\n";
-    print "<tr><td><b>CSO_ID</b></td><td><b>CSO_Name</b></td></tr>";
-    while ($row = pg_fetch_array($result)) {
-        echo "<td>", $row['CSO_ID'], "</td><td>", $row['CSO_Name'], "</td></tr>\n";
-    }
-    echo "</table>\n";
-}
+/*
+ * 
+ * if (pg_num_rows($result) == 0) {
+  echo "0 records";
+  } else {
+  print "<table border=1>\n";
+  print "<tr><td><b>CSO_ID</b></td><td><b>CSO_Name</b></td></tr>";
+  while ($row = pg_fetch_array($result)) {
+  echo "<td>", $row['CSO_ID'], "</td><td>", $row['CSO_Name'], "</td></tr>\n";
+  }
+  echo "</table>\n";
+  }
+ */
 
 //Creat json object
 //pg_fetch_assoc($result)

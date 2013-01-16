@@ -1,0 +1,33 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JQuery GetJSON From Database</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script type="text/javascript" 
+        src="js/jquery-1.7.1.min"></script>
+        <script type="text/javascript" language="javascript">
+            $(document).ready(function() {
+                $("#driver").click(function(event){
+                    $.getJSON('php/psqlExample.php', function(jd) {
+                        var myObject = JSON.stringify(jd);
+                        $('#stage').html(myObject);
+                    });
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <p>Click on the button to load result.html file:</p>
+
+        <input type="button" id="driver" value="Load Data" />
+
+        <div id="stage" style="background-color:grey;">
+            My PostgreSQL code goes here.
+        </div>
+
+    </body>
+</html>
