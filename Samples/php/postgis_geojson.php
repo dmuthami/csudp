@@ -4,8 +4,8 @@
  * Title: PostGIS to GeoJSON
  * Notes: Query a PostGIS table or view and return the results in GeoJSON format, suitable for use in OpenLayers, Leaflet, etc.
  * Author: David Muthami
- * Contact: bryanmcbride.com
- * GitHub: url
+ * Contact: waruid@gmail.com
+ * GitHub: www.spatialwise.com
  */
 # Connect to PostgreSQL database
 //$conn = new PDO('pgsql:host=localhost;dbname=cso;port=5432','dmuthami','Q4jqt3ee9H');
